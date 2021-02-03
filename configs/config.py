@@ -1,8 +1,8 @@
 learning_rate = 1e-3
-num_epochs = 14
+num_epochs = 50
 img_save_path = "./results/"
-lr_schular = [1e-3, 5e-4, 1e-4, 2e-5, 1e-6]
-training_schedule = [4, 8, 10, 12, 14]
+lr_schular = [learning_rate, learning_rate*0.5, learning_rate*(0.5**2), learning_rate*(0.5**3), learning_rate*(0.5**4)]
+training_schedule = [40, 80, 120, 160, 200]
 device_id = [0, 1]
 
 crop_height, crop_width = (256, 256)
