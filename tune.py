@@ -117,7 +117,7 @@ def main():
         print("Training one epoch costs {}s".format(train_one_epoch_time))
 
         # use evaluation model during the net evaluating
-        if (epoch + 1) % 5 == 0:
+        if (epoch + 1) % 50 == 0:
             torch.save({'epoch': epoch+1, 'state_dict': net.state_dict()}, ckpt_dir+'/model_epoch'+str(epoch+1).zfill(3)+'.pth')
             net.eval()
             test_loader.Test(net, epoch+1, result_dir)
