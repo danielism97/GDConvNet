@@ -45,7 +45,7 @@ def main():
 
     # multi-GPU
     net = net.to(device)
-    net = nn.DataParallel(net, device_ids=device_ids)
+    net = nn.DataParallel(net, device_ids=device_ids[:1])
 
     # calculate all trainable parameters in network
     pytorch_total_params = sum(p.numel() for p in net.parameters() if p.requires_grad)
