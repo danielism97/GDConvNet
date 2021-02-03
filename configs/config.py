@@ -14,7 +14,7 @@ std  = [1, 1, 1]
 
 train_data_dir = '/home/zhihao/data/vimeo_septuplet/'
 val_data_dir = '/home/zhihao/data/vimeo_septuplet/'
-from datas.val_data_vimeo import ValData
+# from datas.val_data_vimeo import ValData
 
 save_freq = 4
 

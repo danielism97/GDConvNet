@@ -3,9 +3,8 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from datas.texture import DBreader_DynTex, DBreader_SynTex, DBreader_BVItexture, Sampler, HomTex
-from configs.config import learning_rate, num_epochs, train_batch_size, val_batch_size\
-    , model_save_path, save_freq, device_id, mode, ValData, delta
-from util.utils import to_psnr, print_log, validation, adjust_learning_rate, findLastCheckpoint
+from configs.config import learning_rate, num_epochs, model_save_path, device_id, mode, delta
+from util.utils import adjust_learning_rate
 from model.GDConvNet import L1_Charbonnier_loss, Net
 import argparse
 import os
