@@ -3,7 +3,7 @@ import torch
 import torch.nn.functional as F
 import torchvision.utils as utils
 from math import log10
-from skimage import measure
+# from skimage import measure
 from configs.config import lr_schular, img_save_path, training_schedule
 import os
 import statistics
@@ -41,15 +41,15 @@ def to_psnr(rec, gt):
         print(mse_list)
     return psnr_list
 
-def to_ssim_skimage(rec, gt, data_range = 1):
-    rec_list = torch.split(rec, 1, dim=0)
-    gt_list = torch.split(gt, 1, dim=0)
+# def to_ssim_skimage(rec, gt, data_range = 1):
+#     rec_list = torch.split(rec, 1, dim=0)
+#     gt_list = torch.split(gt, 1, dim=0)
 
-    rec_list_np = [rec_list[ind].permute(0, 2, 3, 1).data.cpu().numpy().squeeze() for ind in range(len(rec_list))]
-    gt_list_np = [gt_list[ind].permute(0, 2, 3, 1).data.cpu().numpy().squeeze() for ind in range(len(rec_list))]
-    ssim_list = [measure.compare_ssim(rec_list_np[ind],  gt_list_np[ind], data_range = data_range, multichannel=True) for ind in range(len(rec_list))]
+#     rec_list_np = [rec_list[ind].permute(0, 2, 3, 1).data.cpu().numpy().squeeze() for ind in range(len(rec_list))]
+#     gt_list_np = [gt_list[ind].permute(0, 2, 3, 1).data.cpu().numpy().squeeze() for ind in range(len(rec_list))]
+#     ssim_list = [measure.compare_ssim(rec_list_np[ind],  gt_list_np[ind], data_range = data_range, multichannel=True) for ind in range(len(rec_list))]
 
-    return ssim_list
+#     return ssim_list
 
 def validation(net, val_data_loader, device, save_tag=False):
     """
