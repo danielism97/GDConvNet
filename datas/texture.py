@@ -827,14 +827,14 @@ class HomTex:
             for t in range(2, n_frames-4, 2):
                 with torch.no_grad():
                 # read 3 frames (rgb)
-                    img1 = totensor(read_frame_yuv2rgb(stream, width, height, t-2, 8))[None,...].cuda() # 1x3xHxW
-                    img2 = totensor(read_frame_yuv2rgb(stream, width, height, t, 8))[None,...].cuda()
-                    img3 = totensor(read_frame_yuv2rgb(stream, width, height, t+1, 8))[None,...].cuda()
-                    img4 = totensor(read_frame_yuv2rgb(stream, width, height, t+2, 8))[None,...].cuda()
-                    img5 = totensor(read_frame_yuv2rgb(stream, width, height, t+4, 8))[None,...].cuda()
+                    img1 = totensor(read_frame_yuv2rgb(stream, self.width, self.height, t-2, 8))[None,...].cuda() # 1x3xHxW
+                    img2 = totensor(read_frame_yuv2rgb(stream, self.width, self.height, t, 8))[None,...].cuda()
+                    img3 = totensor(read_frame_yuv2rgb(stream, self.width, self.height, t+1, 8))[None,...].cuda()
+                    img4 = totensor(read_frame_yuv2rgb(stream, self.width, self.height, t+2, 8))[None,...].cuda()
+                    img5 = totensor(read_frame_yuv2rgb(stream, self.width, self.height, t+4, 8))[None,...].cuda()
 
                 # predict
-                    oup = net(img1, img2, img4, img5)
+                    oup = model(img1, img2, img4, img5)
 
                 # Calculate average PSNR
                 oup_psnr.extend(to_psnr(oup, img3))

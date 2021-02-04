@@ -110,7 +110,7 @@ def main():
             if not (batch_id % 10):
                 if batch_id == 0 and epoch !=0:
                     continue
-                print('Epoch:{0}, Iteration:{1}, central_psnr:{2:.2f}'.format(epoch, batch_id))
+                print('Epoch:{0}, Iteration:{1}'.format(epoch, batch_id))
 
         # Average PSNR on one epoch train_data
         train_one_epoch_time = time.time() - start_time
